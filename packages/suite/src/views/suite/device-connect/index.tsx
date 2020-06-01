@@ -9,6 +9,7 @@ import HelpBuyIcons from '@suite-components/ProgressBar/components/HelpBuyIcons'
 
 import { Dispatch, AppState } from '@suite-types';
 import { isWebUSB } from '@suite-utils/transport';
+import { isMobile } from '@suite-utils/env';
 import { getLinuxPackage } from '@suite-utils/dom';
 
 const Title = styled.div`
@@ -66,7 +67,7 @@ const Index = (props: Props) => {
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageLoaded(true)}
             />
-            {showWebUsb && (
+            {showWebUsb && !isMobile() && (
                 <ButtonWrapper>
                     <WebusbButton ready={imageLoaded}>
                         <Button icon="PLUS">
@@ -75,7 +76,7 @@ const Index = (props: Props) => {
                     </WebusbButton>
                 </ButtonWrapper>
             )}
-            {showUdev && (
+            {showUdev && !isMobile() && (
                 <BridgeWrapper>
                     <P size="tiny">
                         <Translation

@@ -50,8 +50,12 @@ window.onload = function() {
     ];
 
     var parser = new UAParser();
+
     var result = parser.getResult();
     
+    // pass parsed user agent to window object to make it accessible in suite-web
+    window.suiteParsedUserAgent = result;
+
     var isMobile = result.device.type === 'mobile';
     var isSupported = supportedBrowsers.filter(function(browser) {
         return browser.name === result.browser.name;

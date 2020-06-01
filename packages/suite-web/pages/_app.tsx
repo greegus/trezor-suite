@@ -25,6 +25,7 @@ declare global {
         store: Store;
         Cypress: any;
         TrezorConnect: typeof TrezorConnect;
+        suiteParsedUserAgent: any;
     }
 }
 
