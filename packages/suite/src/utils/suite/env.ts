@@ -9,11 +9,12 @@ export const getUserAgent = () => {
 };
 
 /**
- * suiteParsedUserAgent is set only for suite-web. it is injected into window object from browser check 
+ * suiteParsedUserAgent is set only for suite-web. it is injected into window object from browser check
  * more details in: packages/suite-data/files/browser-detection/index.js
  */
 export const isMobile = () => {
-    if (!window.hasOwnProperty('suiteParsedUserAgent')) return;
+    // @ts-ignore
+    if (typeof window.suiteParsedUserAgent === 'undefined') return;
     // @ts-ignore
     return window.suiteParsedUserAgent.device.type === 'mobile';
 };

@@ -6,3 +6,5 @@ export const getUserAgent = () => {
     // https://www.npmjs.com/package/react-native-device-info
     return 'some mobile device';
 };
+
+export const isMobile = () => true;
